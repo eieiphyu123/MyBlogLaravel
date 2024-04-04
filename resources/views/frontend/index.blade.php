@@ -1,13 +1,63 @@
 @extends('layouts.frontend')
 @section('content')
         <!-- Page header with logo and tagline-->
-        <header class="py-5 bg-light border-bottom mb-4">
-            <div class="container">
-                <div class="text-center my-5">
-                    <h1 class="fw-bolder">Welcome to Blog Home!</h1>
-                    <p class="lead mb-0">A Bootstrap 5 starter layout for your next blog homepage</p>
+        <header class="py-5 bg-primary border-bottom mb-4">
+            <!-- Original Code -->
+            <!-- <div class="container">                
+                <div class="text-start text-light my-5">
+                    <h1 class="fw-bolder">Welcome to EI EI Blog!</h1>
+                    <p class="lead mb-0">This is m
+                        y first Laravel Blog Project. <br> Don't have to be great to start but have to start to be great. Let's do it.</p>
                 </div>
+            </div> -->
+
+            <!-- Start Banner -->
+            <div id="carouselExample" class="carousel slide carousel-fade"  data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="{{asset('frontend/images/banner1.jpg')}}" class="d-block w-100 carousel-img" alt="...">
+                        <div class="carousel-text">
+                            <h3>Welcome to EI EI Blog</h3>
+                            <p class="d-none d-md-block">This is m
+                        y first Laravel Blog Project. <br> Don't have to be great to start but have to start to be great. Let's do it
+                            </p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{asset('frontend/images/banner2.jpg')}}" class="d-block w-100" alt="...">
+                        <div class="carousel-text">
+                            <h3>To be Great</h3>
+                            <p class="d-none d-md-block">You do not have to be Great, to Start but you have to start to be Great!
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{asset('frontend/images/banner3.jpg')}}" class="d-block w-100" alt="...">
+                        <div class="carousel-text">
+                            <h3>Dream home journey</h3>
+                            <p class="d-none d-md-block">We understand that buying or selling a property is a significant life event. <br> Where your dream home journey begins with a promise.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="image/banner4.jpg" class="d-block w-100" alt="...">
+                        <div class="carousel-text">
+                            <h3>Discover Home Through Real Eyes</h3>
+                            <p class="d-none d-md-block">Our platform captures the authentic experiences of homeowners, buyers, and sellers. <br>Turned real estate dreams into reality.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+                </button>
             </div>
+            <!-- End Banner --> 
+
         </header>
         <!-- Page content-->
         <div class="container">
@@ -127,5 +177,6 @@
                 </div>
             </div>
         </div>
+        
 @endsection
         
