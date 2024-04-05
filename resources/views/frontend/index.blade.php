@@ -1,5 +1,8 @@
 @extends('layouts.frontend')
 @section('content')
+    <!-- @php 
+        var_dump($posts); // model ကနေ conroller ကနေ တဆင့် compact လုပ်ပြီး ပေးလိုက်သော data ပါမပါ ထုတ်ကြည့် 
+    @endphp -->
         <!-- Page header with logo and tagline-->
         <header class="py-5 bg-primary border-bottom mb-4">
             <!-- Original Code -->
@@ -39,7 +42,7 @@
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="image/banner4.jpg" class="d-block w-100" alt="...">
+                        <img src="{{asset('frontend/images/banner4.jpg')}}" class="d-block w-100" alt="...">
                         <div class="carousel-text">
                             <h3>Discover Home Through Real Eyes</h3>
                             <p class="d-none d-md-block">Our platform captures the authentic experiences of homeowners, buyers, and sellers. <br>Turned real estate dreams into reality.
@@ -76,50 +79,20 @@
                     </div>
                     <!-- Nested row for non-featured blog posts-->
                     <div class="row">
-                        <div class="col-lg-6">
-                            <!-- Blog post-->
-                            <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
+                        @foreach($posts as $post)
+                            <div class="col-lg-6">
+                                <!-- Blog post-->
+                                <div class="card mb-4">
+                                <a href="#!"><img class="card-img-top" src="{{$post->image}}" alt="..." /></a>
                                 <div class="card-body">
-                                    <div class="small text-muted">January 1, 2023</div>
-                                    <h2 class="card-title h4">Post Title</h2>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
-                                    <a class="btn btn-primary" href="#!">Read more →</a>
+                                    <div class="small text-muted">{{$post->created_at}}</div>
+                                    <h2 class="card-title h4">{{$post->title}}</h2>
+                                    <p class="card-text">{{$post->description}}</p>
+                                    <a class="btn btn-primary" href="{{route('front.show',$post->id)}}">Read more →</a>
+                                </div>
                                 </div>
                             </div>
-                            <!-- Blog post-->
-                            <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
-                                <div class="card-body">
-                                    <div class="small text-muted">January 1, 2023</div>
-                                    <h2 class="card-title h4">Post Title</h2>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
-                                    <a class="btn btn-primary" href="#!">Read more →</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <!-- Blog post-->
-                            <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
-                                <div class="card-body">
-                                    <div class="small text-muted">January 1, 2023</div>
-                                    <h2 class="card-title h4">Post Title</h2>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
-                                    <a class="btn btn-primary" href="#!">Read more →</a>
-                                </div>
-                            </div>
-                            <!-- Blog post-->
-                            <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
-                                <div class="card-body">
-                                    <div class="small text-muted">January 1, 2023</div>
-                                    <h2 class="card-title h4">Post Title</h2>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam.</p>
-                                    <a class="btn btn-primary" href="#!">Read more →</a>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                     <!-- Pagination-->
                     <nav aria-label="Pagination">
